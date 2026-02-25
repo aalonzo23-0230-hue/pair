@@ -371,6 +371,7 @@ html {
   flex: 1 1 0;
   min-width: 0;
   background: var(--white);
+  scroll-snap-align: start;
   border-radius: var(--radius);
   padding: 1rem;
   box-shadow: 0 8px 32px rgba(8, 179, 229, 0.18), 0 2px 8px rgba(0,0,0,0.10);
@@ -802,6 +803,39 @@ html {
   .nav-links {
     width: 100%;
     justify-content: center;
+  }
+
+  /* ── Carousel mobile fix ── */
+  .accounts {
+    padding: 0 0 2rem;
+    padding-top: 120px;
+  }
+
+  .accounts-inner {
+    margin-top: -160px;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .cards-track {
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .account-card {
+    /* Show ~1 card at a time with a peek of the next */
+    flex: 0 0 78vw;
+    min-width: 0;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+
+  .carousel-btn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
   }
 }
 /* Team image - standalone, padded with rounded corners like reference */

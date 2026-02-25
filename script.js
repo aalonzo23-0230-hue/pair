@@ -4,12 +4,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var next = document.querySelector('.carousel-next');
   if (!track || !prev || !next) return;
 
-  var cardWidth = 170 + 18; // card width + gap
+  function getScrollAmount() {
+    var card = track.querySelector('.account-card');
+    if (!card) return 200;
+    var style = window.getComputedStyle(track);
+    var gap = parseFloat(style.gap) || 0;
+    return card.offsetWidth + gap;
+  }
+
   prev.addEventListener('click', function () {
-    track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
   });
   next.addEventListener('click', function () {
-    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
   });
 });
 
